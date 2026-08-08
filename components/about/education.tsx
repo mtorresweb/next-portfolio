@@ -4,24 +4,27 @@ type Entry = {
   school: string;
   degree: string;
   period: string;
-  slug?: string;
+  logo: string;
 };
 
 const ENTRIES: Entry[] = [
   {
-    school: "Rhode Island School of Design",
-    degree: "BFA, Graphic Design",
-    period: "2013 – 2017",
+    school: "Universidad Popular del Cesar",
+    degree: "Ingeniería de Sistemas",
+    period: "2020 – 2024",
+    logo: "/upc.png",
   },
   {
-    school: "Stanford University",
-    degree: "HCI Certificate, d.school",
-    period: "2018",
-  },
-  {
-    school: "Bruno Simon's Three.js Journey",
-    degree: "WebGL & Shaders",
+    school: "Open English",
+    degree: "Inglés B2 (MCER)",
     period: "2022",
+    logo: "/open.png",
+  },
+  {
+    school: "SENA",
+    degree: "Técnico en Asistencia Administrativa",
+    period: "2018 – 2019",
+    logo: "/sena.png",
   },
 ];
 
@@ -29,59 +32,52 @@ const ROW_HEIGHT = 64;
 
 export function Education(): ReactNode {
   return (
-    <div className="flex flex-col gap-3">
-      <h3 className="text-foreground text-[15px] font-semibold tracking-tight">
-        Education
-      </h3>
-      <div className="border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative rounded-4xl border p-2 sm:p-4">
-        <ul className="flex flex-col gap-2">
-          {ENTRIES.map((entry) => (
-            <li
-              key={`${entry.school}-${entry.period}`}
-              className="bg-background border-foreground/5 flex items-center gap-4 rounded-3xl border p-2"
-              style={{ minHeight: ROW_HEIGHT }}
-            >
-              <SchoolLogo entry={entry} />
-              <div className="flex min-w-0 flex-col">
-                <span className="text-foreground text-[17px] font-semibold tracking-tight sm:text-[18px]">
-                  {entry.school}
-                </span>
-                <span className="text-foreground/65 mt-0.5 text-[14px] tracking-tight sm:text-[15px]">
-                  {entry.degree}
-                  <span className="text-foreground/30 mx-2">•</span>
-                  <span className="text-foreground/55">{entry.period}</span>
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <section>
+      <h2 className="text-foreground font-serif text-2xl font-medium tracking-tight">
+        Educación
+      </h2>
+
+      <ul className="mt-6 space-y-3">
+        {ENTRIES.map((entry) => (
+          <li
+            key={`${entry.school}-${entry.period}`}
+            className="bg-background border-foreground/5 flex items-center gap-4 rounded-3xl border p-2"
+            style={{ minHeight: ROW_HEIGHT }}
+          >
+            <SchoolLogo entry={entry} />
+
+            <div className="min-w-0">
+              <p className="text-foreground truncate font-medium">
+                {entry.school}
+              </p>
+
+              <p className="text-foreground/60 mt-0.5 text-sm">
+                {entry.degree}
+                <span className="mx-1.5">•</span>
+                {entry.period}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
 function SchoolLogo({ entry }: { entry: Entry }): ReactNode {
-  const initials = entry.school.charAt(0);
   return (
     <span
-      className="border-foreground/15 inline-flex h-12 w-12 shrink-0 items-center justify-center border"
-      aria-hidden="true"
+      className="border-foreground/15 bg-white inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden border"
       style={{ borderRadius: 14 }}
     >
-      {entry.slug ? (
-        <img
-          src={`https://cdn.simpleicons.org/${entry.slug}`}
-          alt=""
-          width={24}
-          height={24}
-          className="h-6 w-6"
-          draggable={false}
-        />
-      ) : (
-        <span className="text-foreground/60 text-[18px] font-semibold tracking-tight">
-          {initials}
-        </span>
-      )}
+      <img
+        src={entry.logo}
+        alt=""
+        width={32}
+        height={32}
+        className="h-8 w-8 object-contain"
+        draggable={false}
+      />
     </span>
   );
 }

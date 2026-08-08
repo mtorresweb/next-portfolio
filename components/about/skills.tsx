@@ -1,23 +1,33 @@
 import type { ReactNode } from "react";
 
 const SKILLS = [
-  "UI/UX Design",
-  "Design Systems",
-  "Prototyping & Motion",
-  "Frontend Development",
-  "TypeScript & React",
-  "Interaction Design",
-  "Performance Tuning",
-  "Accessibility",
-  "Visual Identity",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "C#",
+  ".NET",
+  "Python",
+  "Java",
+  "Laravel",
+  "PostgreSQL",
+  "MySQL",
+  "MongoDB",
+  "REST APIs",
+  "Git",
+  "Docker",
+  "SCRUM",
+  "Kanban",
 ];
 
 export function Skills(): ReactNode {
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="text-[15px] font-semibold tracking-tight text-foreground">
-        What I do
-      </h3>
+      <h2 className="text-foreground font-serif text-2xl font-medium tracking-tight">
+        Habilidades
+      </h2>
+
       <div className="rounded-4xl border border-foreground/5 bg-foreground/2 p-2 sm:p-4 dark:bg-foreground/5">
         <div className="flex flex-wrap gap-3">
           {SKILLS.map((skill) => (

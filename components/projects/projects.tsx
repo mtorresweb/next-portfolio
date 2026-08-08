@@ -1,23 +1,15 @@
 import {
   ArrowRight,
-  Bot,
-  Compass,
-  Layers,
-  LineChart,
-  Sparkles,
-  Wand2,
+  ExternalLink,
+  GraduationCap,
+  Lightbulb,
+  Users,
 } from "lucide-react";
 import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { FadeIn } from "@/components/ui/motion-primitives";
-
-/**
- * Project imagery below is mockup-only. All visuals are sourced from
- * Dribbble and credit belongs to the original creators on dribbble.com.
- * Replace these with your own work before shipping.
- */
 
 type Project = {
   id: string;
@@ -26,92 +18,50 @@ type Project = {
   title: string;
   description: string;
   meta: string;
-  imageRatio: number;
   image: string;
   imageAlt: string;
+  url: string;
 };
 
 const PROJECTS: Project[] = [
   {
-    id: "loom",
-    icon: Sparkles,
-    iconLabel: "LOOM",
+    id: "unihaven",
+    icon: GraduationCap,
+    iconLabel: "UniHaven",
     title:
-      "An AI writing companion that thinks alongside you, allowing you to capture ideas, edits, and drafts in one focused space.",
+      "Repositorio académico para compartir proyectos de grado, investigaciones y trabajos de aula.",
     description:
-      "I designed Loom, a focused writing surface where ideas, edits, and drafts coexist without the chat clutter.",
-    meta: "Design Engineer, 2024",
-    imageRatio: 752 / 497,
-    image:
-      "https://cdn.dribbble.com/userupload/46128964/file/b92b9d268dd928642ca94bd49e32923a.jpg?resize=752x497&vertical=center",
-    imageAlt: "Loom AI writing companion mockup",
+      "Desarrollé UniHaven como un espacio centralizado para publicar y consultar proyectos académicos, con integración y respaldo en GitHub.",
+    meta: "Desarrollador de Software, 2024",
+    image: "/unihaven.png",
+    imageAlt: "UniHaven repositorio académico",
+    url: "https://unihaven.vercel.app/",
   },
   {
-    id: "atlas",
-    icon: Compass,
-    iconLabel: "Atlas Studio",
-    title: "A two week brand and product sprint for a creative studio.",
-    description:
-      "End to end identity, marketing site, and a small product surface designed to feel quietly confident across every touchpoint.",
-    meta: "Product & Brand Designer, 2025",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/24599416/file/original-1ae5075dcd129aebb16bdbca24b41ac7.png?resize=1024x768&vertical=center",
-    imageAlt: "Atlas Studio brand and product sprint mockup",
-  },
-  {
-    id: "rhythm",
-    icon: LineChart,
-    iconLabel: "Rhythm",
-    title: "Calm analytics for indie founders.",
-    description:
-      "A weekly digest that turns raw product data into a simple narrative. Built so you can read it on a Sunday with coffee.",
-    meta: "Founder & Designer, 2024",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/47357856/file/75841fa59f32f05ca6c5ddf02d08dfe6.png?resize=1024x768&vertical=center",
-    imageAlt: "Rhythm calm analytics mockup",
-  },
-  {
-    id: "groove",
-    icon: Wand2,
-    iconLabel: "Groove",
+    id: "emprende-upc",
+    icon: Lightbulb,
+    iconLabel: "Emprende UPC",
     title:
-      "Reimagining the booking flow for a music school, asisting thousands of students in finding the right lessons.",
+      "Plataforma para explorar, gestionar y fortalecer proyectos de emprendimiento.",
     description:
-      "I led a redesign of the lesson booking experience, cutting drop off in half and making the schedule feel like a calendar people actually want to open.",
-    meta: "Lead Designer, 2023",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/43955214/file/original-d4cde1de803e84b97d8892e3444c04b0.png?resize=1024x768&vertical=center",
-    imageAlt: "Groove music school booking flow mockup",
+      "Emprende UPC permite explorar iniciativas de emprendimiento, acceder a material de formación y gestionar proyectos propios desde una misma plataforma.",
+    meta: "Desarrollador de Software, 2024",
+    image: "/emprende.png",
+    imageAlt: "Emprende UPC plataforma de emprendimiento",
+    url: "https://emprende-upc.vercel.app/",
   },
   {
-    id: "fieldnote",
-    icon: Layers,
-    iconLabel: "Fieldnote",
+    id: "red-profesional",
+    icon: Users,
+    iconLabel: "Red Profesional",
     title:
-      "A pocket sized research tool for design teams that want to get out of their docs and into the world.",
+      "Plataforma para conectar clientes con profesionales y facilitar la contratación de servicios.",
     description:
-      "Capture quotes, tag patterns, and synthesize themes in one place. The interface stays out of the way so the thinking can happen.",
-    meta: "Design Engineer, 2024",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/30310902/file/original-621e7fe47be9d11ee14544456c693bec.png?resize=1024x768&vertical=center",
-    imageAlt: "Fieldnote pocket sized research tool mockup",
-  },
-  {
-    id: "talkback",
-    icon: Bot,
-    iconLabel: "Talkback",
-    title: "A friendlier interface for talking to language models.",
-    description:
-      "An exploration of how AI chat could feel less like a terminal and more like a conversation with a curious friend.",
-    meta: "Independent Project, 2025",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/16560717/file/original-c6f745d50302d66609bfe080f99f5396.png?resize=1024x768&vertical=center",
-    imageAlt: "Talkback friendlier AI chat interface mockup",
+      "Desarrollé una plataforma orientada a conectar clientes con profesionales en Aguachica, facilitando la búsqueda de servicios y la comunicación entre usuarios.",
+    meta: "Desarrollador de Software, 2025",
+    image: "/jobp.png",
+    imageAlt: "Red Profesional plataforma de servicios",
+    url: "https://jobplatform-rho-hazel.vercel.app/",
   },
 ];
 
@@ -127,42 +77,41 @@ export function Projects({
   const items = viewMoreVisible ? PROJECTS.slice(0, 4) : PROJECTS;
 
   return (
-    <section className="relative w-full">
-      <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
-        {withHeadline ? (
-          <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
-            <h2 className="text-foreground font-serif text-[2.5rem] leading-[1.05] font-medium tracking-tight md:text-[3rem] lg:text-[3.5rem]">
-              Proyectos recientes
-            </h2>
-            <p className="text-foreground/65 max-w-[33ch] text-[18px] leading-[1.45] tracking-tight sm:text-[20px]">
-              Desde aplicaciones web hasta herramientas de productividad, estos
-              son algunos de los proyectos en los que he trabajado
-              recientemente.
-            </p>
-          </FadeIn>
-        ) : null}
+    <section>
+      {withHeadline ? (
+        <div className="mx-auto mb-10 w-full max-w-[1040px] text-center">
+          <h2 className="text-foreground font-serif text-2xl font-medium tracking-tight sm:text-3xl">
+            Proyectos recientes
+          </h2>
 
-        <div className="columns-1 gap-6 md:columns-2 md:gap-7">
-          {items.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
+          <p className="text-foreground/65 mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed sm:text-[16px]">
+            Algunos de los proyectos de software en los que he trabajado, desde
+            plataformas académicas hasta aplicaciones web orientadas a resolver
+            problemas reales.
+          </p>
         </div>
+      ) : null}
 
-        {viewMoreVisible ? (
-          <div className="mt-12 flex justify-center sm:mt-16">
-            <Link
-              href="/projects"
-              className="border-foreground/8 focus-ring group bg-background text-foreground hover:bg-foreground/5 inline-flex cursor-pointer items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-colors"
-            >
-              Todos los proyectos
-              <ArrowRight
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
-            </Link>
-          </div>
-        ) : null}
+      <div className="columns-1 gap-8 md:columns-2 md:gap-10">
+        {items.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
       </div>
+
+      {viewMoreVisible ? (
+        <div className="mt-12 flex justify-center sm:mt-16">
+          <Link
+            href="/projects"
+            className="border-foreground/8 focus-ring group bg-background text-foreground hover:bg-foreground/5 inline-flex cursor-pointer items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-colors"
+          >
+            Mostrar más
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </Link>
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -175,41 +124,58 @@ function ProjectCard({
   index: number;
 }): ReactNode {
   const Icon = project.icon;
+
   return (
     <FadeIn
       delay={Math.min(index * 0.06, 0.3)}
-      className="mb-6 break-inside-avoid md:mb-7"
+      className="mx-auto mb-8 w-full max-w-[520px] break-inside-avoid md:mb-10"
     >
-      <article className="project-card border-foreground/8 bg-background flex cursor-pointer flex-col gap-4 rounded-3xl border p-3 sm:p-3.5">
-        <header className="flex items-center gap-2.5 px-1 pt-2">
-          <span className="border-foreground/10 bg-background inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border">
-            <Icon className="text-foreground h-3.5 w-3.5" aria-hidden="true" />
+      <article className="group">
+        <div className="mb-3 flex items-center gap-2 px-1">
+          <span
+            className="bg-foreground/5 text-foreground/70 inline-flex h-8 w-8 items-center justify-center rounded-xl"
+            aria-hidden="true"
+          >
+            <Icon className="h-4 w-4" />
           </span>
-          <span className="text-foreground text-sm font-medium tracking-tight">
+
+          <span className="text-foreground/60 text-sm font-medium tracking-tight">
             {project.iconLabel}
           </span>
-        </header>
-
-        <div
-          className="project-card__image ring-foreground/5 bg-foreground/5 relative w-full overflow-hidden rounded-2xl ring-1"
-          style={{ aspectRatio: project.imageRatio }}
-        >
-          <div className="project-card__image-inner">
-            <Image
-              src={project.image}
-              alt={project.imageAlt}
-              fill
-              sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
-              className="object-cover"
-              priority={index < 2}
-            />
-          </div>
         </div>
 
-        <div className="flex flex-col gap-2.5 px-1 pb-1">
+        <Link
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Visitar ${project.iconLabel}`}
+          className="focus-ring block"
+        >
+          <div className="project-card__image ring-foreground/5 bg-foreground/5 relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1">
+            <div className="project-card__image-inner flex h-full w-full items-center justify-center p-3 transition-transform duration-500 group-hover:scale-[1.02]">
+              <div className="relative h-full w-full">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 520px, 90vw"
+                  className="object-contain"
+                  priority={index < 2}
+                />
+              </div>
+            </div>
+
+            <div className="bg-background/90 text-foreground absolute top-3 right-3 inline-flex h-9 w-9 items-center justify-center rounded-xl opacity-0 shadow-sm transition-opacity duration-300 group-hover:opacity-100">
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            </div>
+          </div>
+        </Link>
+
+        <div className="flex flex-col gap-2.5 px-1 pt-4 pb-1">
           <h3 className="text-foreground text-[20px] leading-[1.2] font-medium tracking-tight sm:text-[22px]">
             {project.title}
           </h3>
+
           <p className="text-foreground/65 text-[14px] leading-normal tracking-tight sm:text-[15px]">
             {project.description}
           </p>

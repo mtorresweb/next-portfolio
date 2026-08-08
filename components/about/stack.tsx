@@ -12,22 +12,32 @@ type Chip = {
 };
 
 const CHIPS: Chip[] = [
+  { label: "React", slug: "react", bg: "#20232a", fg: "#ffffff" },
+  { label: "Next.js", slug: "nextdotjs", bg: "#111111", fg: "#ffffff" },
+  { label: "TypeScript", slug: "typescript", bg: "#3178C6", fg: "#ffffff" },
+  { label: "JavaScript", slug: "javascript", bg: "#F7DF1E", fg: "#111111" },
+  { label: "Node.js", slug: "nodedotjs", bg: "#339933", fg: "#ffffff" },
   {
-    label: "Figma",
-    slug: "figma",
-    bg: "#1f1f1f",
+    label: "C#",
+    slug: "csharp",
+    bg: "#512BD4",
     fg: "#ffffff",
-    iconUrl: "https://svgl.app/library/figma.svg",
+    iconUrl: "/cs.png",
   },
-  { label: "React", slug: "react", bg: "#1FB6CB", fg: "#ffffff" },
-  { label: "Next.js", slug: "nextdotjs", bg: "#1f1f1f", fg: "#ffffff" },
-  { label: "TypeScript", slug: "typescript", bg: "#2F74C0", fg: "#ffffff" },
-  { label: "shadcn/ui", slug: "shadcnui", bg: "#5b54ff", fg: "#ffffff" },
-  { label: "Cursor", slug: "cursor", bg: "#111111", fg: "#ffffff" },
-  { label: "GSAP", slug: "gsap", bg: "#0AE448", fg: "#0a0a0a" },
-  { label: "GitHub", slug: "github", bg: "#181717", fg: "#ffffff" },
-  { label: "Vercel", slug: "vercel", bg: "#0a0a0a", fg: "#ffffff" },
-  { label: "Tailwind CSS", slug: "tailwindcss", bg: "#2BBCF5", fg: "#ffffff" },
+  { label: ".NET", slug: "dotnet", bg: "#512BD4", fg: "#ffffff" },
+  { label: "Python", slug: "python", bg: "#3776AB", fg: "#ffffff" },
+  {
+    label: "Java",
+    slug: "openjdk",
+    bg: "#5382A1",
+    fg: "#ffffff",
+    iconUrl: "/java.png",
+  },
+  { label: "PostgreSQL", slug: "postgresql", bg: "#4169E1", fg: "#ffffff" },
+  { label: "MongoDB", slug: "mongodb", bg: "#47A248", fg: "#ffffff" },
+  { label: "Docker", slug: "docker", bg: "#2496ED", fg: "#ffffff" },
+  { label: "Git", slug: "git", bg: "#F05032", fg: "#ffffff" },
+  { label: "Laravel", slug: "laravel", bg: "#FF2D20", fg: "#ffffff" },
 ];
 
 const CHIP_RADIUS = 14;
@@ -213,9 +223,9 @@ export function Stack(): ReactNode {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center gap-3">
-        <h3 className="text-foreground text-[15px] font-semibold tracking-tight">
-          Stack
-        </h3>
+       <h2 className="text-foreground font-serif text-2xl font-medium tracking-tight">
+        Stack de Tecnologías
+      </h2>
       </div>
 
       <div className="border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative h-40 overflow-hidden rounded-4xl border sm:h-64">
@@ -282,13 +292,13 @@ function ChipPill({ chip }: { chip: Chip }): ReactNode {
         aria-hidden="true"
       >
         <img
-          src={chip.iconUrl ?? `https://cdn.simpleicons.org/${chip.slug}`}
-          alt=""
-          width={18}
-          height={18}
-          className="h-5 w-5"
-          draggable={false}
-        />
+  src={chip.iconUrl ?? `https://cdn.simpleicons.org/${chip.slug}`}
+  alt=""
+  width={18}
+  height={18}
+  className="h-5 w-5 object-contain"
+  draggable={false}
+/>
       </span>
       <span>{chip.label}</span>
     </div>
